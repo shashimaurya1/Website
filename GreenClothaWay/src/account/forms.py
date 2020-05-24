@@ -3,18 +3,24 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate
 from .models import Account
 
+def decorator_email_field(clazz):
+    # bad: using internal from django, doesnt work with local email field only
+    clazz.base_fields['email'] = forms.EmailField(max_length=60, label='Email', help_text='Required. Add a valid email address')
+    return clazz
 
+
+@decorator_email_field
 class SignUpForm(UserCreationForm):
-    email = forms.EmailField(max_length=60, help_text='Required. Add a valid email address')
 
     class Meta:
         model = Account
-        fields = ('username', 'first_name', 'last_name', 'email', 'street', 'housenumber', 'plz', 'city',
+        fields = ('email', 'username', 'first_name', 'last_name', 'street', 'housenumber', 'plz', 'city',
                   'country', 'password1', 'password2')
 
 
+@decorator_email_field
 class LoginForm(forms.ModelForm):
-    email = forms.EmailField(max_length=40, label='Email')
+
     password = forms.CharField(label='Password', widget=forms.PasswordInput)
 
     class Meta:
