@@ -20,7 +20,7 @@ from .utils import get_user_model
 User = get_user_model()
 
 def create_user(username, email, password):
-    return User.objects.create_user(username, email, password, 'MA', 'first_name', 'last_name', 'street', 'housenumber', 'plz', 'city', 'country');
+    return User.objects.create_user(username, email, password, 'MA', 'first_name', 'last_name', 'street', '123', 'plz', 'city', 'country');
 
 class SendTestCase(TestCase):
     def setUp(self):
