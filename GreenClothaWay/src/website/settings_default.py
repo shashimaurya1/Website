@@ -87,7 +87,6 @@ DATABASES = {
         'NAME': 'greenclothaway',
         'USER': 'dbuser',
         'PASSWORD': 'dbpassword',
-        'PASSWORD': 'dbpassword',
         'HOST': 'localhost',
         'PORT': '',
     }
