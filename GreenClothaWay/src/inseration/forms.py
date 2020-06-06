@@ -20,7 +20,7 @@ class InserationUpdateForm(forms.ModelForm):
         if self.is_valid():
             email = self.cleaned_data['email']
             try:
-                account = Inseration.objects.exclude(pk=self.instance.pk).get(email=email)
+                Inseration.objects.exclude(pk=self.instance.pk).get(email=email)
             except Inseration.DoesNotExist:
                 return email
             raise forms.ValidationError('Email "%s" is already in use.' % email)
