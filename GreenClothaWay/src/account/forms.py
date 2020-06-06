@@ -1,7 +1,9 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate
+from django.contrib.auth.forms import UserCreationForm
+
 from .models import Account
+
 
 def decorator_email_field(clazz):
     # bad: using internal from django, doesnt work with local email field only
