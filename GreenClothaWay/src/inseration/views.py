@@ -1,8 +1,8 @@
 from django.shortcuts import redirect, render
 from django.urls import reverse
 
-
 from .forms import InserationForm
+
 
 def insert_view(request):
     context = {}

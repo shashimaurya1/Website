@@ -1,11 +1,8 @@
-import datetime
-
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
 from django.urls import reverse
 
-from .models import Account
 from .forms import SignUpForm, LoginForm, AccountUpdateForm
 
 

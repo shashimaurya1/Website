@@ -2,6 +2,7 @@ from django.test import TestCase
 
 from .models import Account
 
+
 class CreateAccountTest(TestCase):
 
     def setUp(self):

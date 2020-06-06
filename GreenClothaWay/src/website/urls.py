@@ -14,11 +14,6 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
-from django.http import HttpResponseRedirect
-from django.contrib import admin
-from django.urls import path, include
-from django.http import HttpResponseRedirect
-
 from account.views import (
     register_view,
     login_view,
@@ -28,8 +23,12 @@ from account.views import (
     profile_edit_view,
     profile_inserations
 )
-
-
+from django.contrib import admin
+from django.http import HttpResponseRedirect
+from django.urls import path, include
+from inseration.views import (
+    insert_view,
+)
 from marketplace.views import (
     about_view,
     index_view,
@@ -37,9 +36,6 @@ from marketplace.views import (
     cart_view
 )
 
-from inseration.views import (
-    insert_view,
-)
 urlpatterns = [
     path(r'', lambda r: HttpResponseRedirect('index/')),
     path('admin/', admin.site.urls),

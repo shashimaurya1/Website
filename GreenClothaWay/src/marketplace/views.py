@@ -1,8 +1,6 @@
-from django.contrib.auth import logout, authenticate
-from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User
-from django.shortcuts import render, redirect
 import datetime
+
+from django.shortcuts import render
 
 
 def index_view(request):
