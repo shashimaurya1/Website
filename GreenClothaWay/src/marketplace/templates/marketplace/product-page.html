@@ -5,19 +5,19 @@
 <div class="d-flex flex-wrap">
     <div class="row">
         {% if inseration_list %}
-        {% for inseration in inseration_list %}
-        <div class="col-sm-3">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="..." alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title" href="#{{ inseration.inserter }}">{{ inseration.title }}</h5>
-                    <p class="card-text">{{ inseration.description }}</p>
+            {% for inseration in inseration_list %}
+            <div class="col-sm-3">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="..." alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title" href="#{{ inseration.inserter }}">{{ inseration.title }}</h5>
+                        <p class="card-text">{{ inseration.description }}</p>
+                    </div>
                 </div>
             </div>
-        </div>
-        {% endfor %}
+            {% endfor %}
         {% else %}
-        <p>no inserations</p>
+            <p>no inserations</p>
         {% endif %}
     </div>
 </div>
