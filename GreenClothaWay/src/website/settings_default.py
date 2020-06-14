@@ -28,6 +28,7 @@ ALLOWED_HOSTS = ['www.greenclothaway.eu', 'greenclothaway.eu', 'localhost', '78.
 
 INSTALLED_APPS = [
     'marketplace',
+    'inseration',
     'bootstrap4',
     'account',
     'website',
@@ -39,7 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_extensions',
-    'inseration',
     'behave_django',
 
 ]
