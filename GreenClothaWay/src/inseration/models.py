@@ -48,6 +48,9 @@ class Inseration(models.Model):
 
     inserted_at = models.DateTimeField(_("inserted_at"), auto_now_add=True)
 
+    created_at = models.DateTimeField(auto_now_add=True)
+    modified_at = models.DateTimeField(auto_now=True)
+
     objects = InserationManager()
 
 
