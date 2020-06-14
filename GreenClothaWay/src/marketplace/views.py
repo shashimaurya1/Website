@@ -13,7 +13,9 @@ def index_view(request):
 def marketplace_view(request):
     year = datetime.datetime.now().year
     inseration_list = Inseration.objects.order_by('-modified_at')
-    return render(request, 'marketplace/product-page.html', {locals(), inseration_list})
+    context = { 'inseration_list': inseration_list,
+                'locals': locals()}
+    return render(request, 'marketplace/product-page.html', context)
 
 
 def about_view(request):
