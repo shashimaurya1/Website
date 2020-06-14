@@ -1,7 +1,7 @@
 import datetime
 
 from django.shortcuts import render
-from inserations.models import Inseration
+from inseration.models import Inseration
 
 
 def index_view(request):
