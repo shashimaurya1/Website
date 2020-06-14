@@ -26,6 +26,8 @@ from account.views import (
 from django.contrib import admin
 from django.http import HttpResponseRedirect
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 from inseration.views import (
     insert_view,
 )
@@ -53,4 +55,4 @@ urlpatterns = [
     path('insert/', insert_view, name='insert'),
     path('profile/inserations/', profile_inserations, name='profile/inserations'),
 
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
