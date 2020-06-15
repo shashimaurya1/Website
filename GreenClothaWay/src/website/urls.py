@@ -30,6 +30,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from inseration.views import (
     insert_view,
+    view_inseration,
 )
 from marketplace.views import (
     about_view,
@@ -54,5 +55,6 @@ urlpatterns = [
     path('profile/messages/', include('django_messages.urls'), name="messages"),
     path('insert/', insert_view, name='insert'),
     path('profile/inserations/', profile_inserations, name='profile/inserations'),
+    path('inseration/<inseration_id>', view_inseration, name='view_inseration'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
