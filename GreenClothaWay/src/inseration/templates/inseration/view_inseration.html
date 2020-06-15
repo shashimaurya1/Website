@@ -3,17 +3,18 @@
 {% load bootstrap4 %}
 {% block content %}
 
-{% endblock %}
 <div class="container">
     <div class="row">
         <div class="col-8">
            <h1>{{ inseration.title }}</h1>
             <p style="opacity: 70%; text-align: right">{{ inseration.inserter.name }}</p>
             <p>{{ inseration.description}}</p>
-            <button class="btn btn-primary btn-block btn-lg" href="https://www.greenclothaway.eu/profile/messages/compose/{{inseration.inserter.id}}">PN {{ inseration.inserter.name}}</button>
+            <button class="btn btn-primary btn-block btn-lg" href="{% url 'messages_compose_to' inseration.inserter.id %}">PN {{ inseration.inserter.name}}</button>
         </div>
         <div class="col-4">
            <img src="{{ inseration.img.url }}">
         </div>
     </div>
 </div>
+
+{% endblock %}
