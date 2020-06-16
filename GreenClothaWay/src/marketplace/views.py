@@ -3,6 +3,8 @@ import datetime
 from django.shortcuts import render
 from inseration.models import Inseration
 
+from inseration.forms import InserationFilterForm
+
 
 def index_view(request):
     test = "hello"
@@ -12,9 +14,33 @@ def index_view(request):
 
 def marketplace_view(request):
     year = datetime.datetime.now().year
-    inseration_list = Inseration.objects.order_by('-modified_at')
-    context = { 'inseration_list': inseration_list,
-                'locals': locals()}
+    inseration_list = []
+
+    if request.method == 'POST':
+        form = InserationFilterForm(request.POST)
+        form.save(commit=False)
+        category = form.cleaned_data['category']
+        subcategory = form.cleaned_data['subcategory']
+        size = form.cleaned_data['size']
+        print(category)
+
+        #TODO leeres form behandeln
+
+        inseration_list = Inseration.objects.filter(category=category, subcategory=subcategory, size=size)
+
+    # category_list = ['Unisex', 'Women', 'Men']
+    #  subcategory_list = ['T-Shirt', 'Hoodie', 'Polo', 'Jeans', 'Shorts', 'Sneaker', 'Longsleeve', 'Sweatpants', 'Accesoires',
+    # #                     'Hats', 'Jacket']
+    # size_list = ['XS', 'S', 'M', 'L', 'XL', 'XXL', 'XXXL', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44',
+    #           '45', '46', '47', '48']
+    else:
+        form = InserationFilterForm()
+        inseration_list = Inseration.objects.order_by('-modified_at')
+
+    context = {'inseration_list': inseration_list,
+               'filter_form': form,
+               'locals': locals()}
+
     return render(request, 'marketplace/product-page.html', context)
 
 
