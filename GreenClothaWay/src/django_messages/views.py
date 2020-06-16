@@ -6,6 +6,9 @@ from django.contrib.auth.decorators import login_required
 from django.utils.translation import ugettext as _
 from django.utils import timezone
 
+from account.models import Account
+from inseration.models import Inseration
+
 try:
     from django.core.urlresolvers import reverse
 except ImportError:
@@ -66,7 +69,7 @@ def trash(request, template_name='django_messages/trash.html'):
 
 
 @login_required
-def compose(request, recipient=None, form_class=ComposeForm,
+def compose(request, inseration_id=None, form_class=ComposeForm,
             template_name='django_messages/compose.html', success_url=None,
             recipient_filter=None):
     """
@@ -98,11 +101,12 @@ def compose(request, recipient=None, form_class=ComposeForm,
                 success_url = request.GET['next']
             return HttpResponseRedirect(success_url)
     else:
-        form = form_class(initial={"subject": request.GET.get("subject", "")})
-        if recipient is not None:
-            recipients = [u for u in User.objects.filter(
-                **{'%s__in' % get_username_field(): [r.strip() for r in recipient.split('+')]})]
+        form = form_class()
+        if inseration_id is not None:
+            inseration = get_object_or_404(Inseration, pk=inseration_id)
+            recipients = [get_object_or_404(Account, pk=inseration.inserter.id)]
             form.fields['recipient'].initial = recipients
+            form.fields['subject'].initial = inseration.title
     return render(request, template_name, {
         'form': form,
     })
