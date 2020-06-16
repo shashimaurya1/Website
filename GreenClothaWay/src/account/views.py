@@ -4,6 +4,7 @@ from django.shortcuts import redirect, render
 from django.urls import reverse
 
 from .forms import SignUpForm, LoginForm, AccountUpdateForm
+from inseration.models import Inseration
 
 
 def register_view(request):
@@ -122,7 +123,10 @@ def profile_inserations(request):
     if not request.user.is_authenticated:
         return redirect("login")
     else:
-        return render(request, 'account/inserations.html')
+        context = {}
+        inseration_list = Inseration.objects.filter(inserter=request.user)
+        context['inseration_list'] = inseration_list
+        return render(request, 'account/inserations.html', context)
 
 @login_required
 def profile_messages(request):

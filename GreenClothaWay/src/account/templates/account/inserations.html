@@ -1,19 +1,26 @@
 {% extends 'account/base.html' %}
 {% load static %}
 {% load bootstrap4 %}
+
 {% block accountcontent %}
-<div class="block-content" style="padding: 7px;">
-    <h2 class="text-left text-info" style="margin-bottom: 0px;">Your Inserations</h2>
+<div class="d-flex flex-wrap">
     <div class="row">
-        <div class="col"><img class="rounded img-fluid" src="tech/image4.jpg"/>
-            <p class="text-center">Paragraph</p>
-        </div>
-        <div class="col"><img class="rounded img-fluid" src="tech/image4.jpg"/>
-            <p class="text-center">Paragraph</p>
-        </div>
-        <div class="col"><img class="rounded img-fluid" src="tech/image4.jpg"/>
-            <p class="text-center">Paragraph</p>
-        </div>
+        {% if inseration_list %}
+            {% for inseration in inseration_list %}
+            <div class="col-sm-3">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="{{inseration.images.url}}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ inseration.title }}</h5>
+                        <p class="card-text">{{ inseration.description }}</p>
+                        <a class="stretched-link" href="{% url 'view_inseration' inseration.id %}"></a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <p>no inserations</p>
+        {% endif %}
     </div>
 </div>
 {% endblock %}
