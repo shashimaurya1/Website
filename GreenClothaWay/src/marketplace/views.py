@@ -47,8 +47,3 @@ def marketplace_view(request):
 def about_view(request):
     year = datetime.datetime.now().year
     return render(request, 'marketplace/about-us.html', locals())
-
-
-def cart_view(request):
-    year = datetime.datetime.now().year
-    return render(request, 'marketplace/shopping-cart.html', locals())

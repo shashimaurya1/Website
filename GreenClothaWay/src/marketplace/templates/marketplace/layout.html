@@ -25,13 +25,13 @@
         <div class="collapse navbar-collapse" id="navcol-1">
             <ul class="nav navbar-nav ml-auto">
                 <li class="nav-item" role="presentation">
+                    <a class="nav-link" href="{% url 'insert' %}">Inseration</a>
+                </li>
+                <li class="nav-item" role="presentation">
                     <a class="nav-link" href="{% url 'marketplace' %}">Shop</a>
                 </li>
                 <li class="nav-item" role="presentation">
                     <a class="nav-link" href="{% url 'about' %}">About Us</a>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <a class="nav-link" href="{% url 'cart' %}">Shopping Cart<i class="fa fa-shopping-cart"></i></a>
                 </li>
                 <li class="nav-item" role="presentation">
                     {%if request.user.is_authenticated %}

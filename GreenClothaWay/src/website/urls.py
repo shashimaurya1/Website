@@ -36,7 +36,6 @@ from marketplace.views import (
     about_view,
     index_view,
     marketplace_view,
-    cart_view
 )
 
 urlpatterns = [
@@ -49,7 +48,6 @@ urlpatterns = [
     path('about-us/', about_view, name='about'),
     path('index/', index_view, name='index'),
     path('marketplace/', marketplace_view, name='marketplace'),
-    path('shoppingcart/', cart_view, name='cart'),
     path('profile/', profile_view, name='profile'),
     path('profile/edit/', profile_edit_view, name='profile/edit'),
     path('profile/messages/', include('django_messages.urls'), name="messages"),
