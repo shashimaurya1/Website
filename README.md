@@ -11,7 +11,7 @@
 create a virtual environment and update pip and wheel
 ```
 python3 -m venv <venvname>
-source /<venvname>/bin/activate
+source <venvname>/bin/activate
 pip install -U pip
 pip install -U wheel
 ```
