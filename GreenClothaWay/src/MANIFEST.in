@@ -1,0 +1,11 @@
+include LICENSE
+include README.md
+include website/settings.py.sample
+recursive-include account/templates *
+recursive-include django_messages/templates *
+recursive-include django_messages/locale *
+recursive-include inseration/templates *
+recursive-include marketplace/templates *
+recursive-include marketplace/static *
+global-exclude *settings.py
+
