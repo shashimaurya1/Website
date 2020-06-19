@@ -13,14 +13,3 @@ ALLOWED_HOSTS = ['www.greenclothaway.eu', 'greenclothaway.eu', 'localhost', '78.
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 # enter db specs fitting your local machine
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'dbname',
-        'USER': 'dbuser',
-        'PASSWORD': 'secrete',
-        'HOST': 'localhost',
-        'PORT': '',
-    }
-}
-
