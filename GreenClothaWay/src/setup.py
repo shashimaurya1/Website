@@ -6,6 +6,7 @@ from setuptools.command.build_py import build_py as build_py_orig
 
 excluded = ['website/settings.py']
 
+
 class build_py(build_py_orig):
     def find_package_modules(self, package, package_dir):
         modules = super().find_package_modules(package, package_dir)
@@ -37,7 +38,6 @@ setup(name='greenclothaway',
           'parse==1.15.0',
           'parse-type==0.5.2',
           'Pillow==7.1.2',
-          'psycopg2==2.8.5',
           'Pygments==2.6.1',
           'pytz==2020.1',
           'six==1.15.0',
