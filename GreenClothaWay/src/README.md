@@ -28,7 +28,9 @@ mv <venvname>/lib/python3.8/site-packages/website/settings.py.sample <venvname>/
 ```
 
 in this settings.py you now have to add a django secret key.
-you can create a secret key by this python oneliner : ```python -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'```
+you can create a secret key by this python oneliner : 
+
+```python -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'```
 
 for a development server any random 50 character long string will do.
 also if you want to use another database then the default(sqlite) you have to configure it here.
