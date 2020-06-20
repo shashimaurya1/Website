@@ -17,7 +17,7 @@ pip install -U wheel
 ```
 
 ## installation
-install package
+install package. one can find the releases [here](https://github.com/GreenClothaWay/Blog/tree/master/release) 
 ```
 pip install greenclothaway-<release_version>-py3-none-any.whl
 ```
@@ -30,9 +30,10 @@ mv <venvname>/lib/python3.8/site-packages/website/settings.py.sample <venvname>/
 in this settings.py you now have to add a django secrete key. for a development server any random 50 character long string will do.
 also if you want to use another databse then the default(sqlite) you have to configure it here.
 
-after that you will have to migrate django database stuff n all.
+after that you will have to create a superuser and migrate django database stuff n all.
 
 ```
+manage.py createsuperuser
 manage.py makemigrations
 manage.py migrate
 ```
