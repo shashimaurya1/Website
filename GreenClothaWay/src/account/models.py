@@ -12,8 +12,6 @@ class AccountManager(BaseUserManager):
             raise ValueError("Users must have a username")
         if not password:
             raise ValueError("Users must have a password")
-        if not title:
-            raise ValueError("Users must have an title")
         if not first_name:
             raise ValueError("Users must have an first name")
         if not last_name:
