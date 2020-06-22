@@ -63,6 +63,8 @@ def profile_view(request):
     if not request.user.is_authenticated:
         return redirect("login")
     context = {}
+    inseration_count = Inseration.objects.filter(inserter=request.user).count()
+    context['inseration_count'] = inseration_count
     if request.method == "POST":
         form = AccountUpdateForm(request.POST, instance=request.user)
         if form.is_valid():
@@ -73,7 +75,6 @@ def profile_view(request):
             initial={
                 "email": request.user.email,
                 "username": request.user.username,
-                "title": request.user.title,
                 "first_name": request.user.first_name,
                 "last_name": request.user.last_name,
                 "street": request.user.street,
