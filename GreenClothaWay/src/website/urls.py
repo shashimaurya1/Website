@@ -26,14 +26,16 @@ from account.views import (
 from django.contrib import admin
 from django.http import HttpResponseRedirect
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 from inseration.views import (
     insert_view,
+    view_inseration,
 )
 from marketplace.views import (
     about_view,
     index_view,
     marketplace_view,
-    cart_view
 )
 
 urlpatterns = [
@@ -46,11 +48,11 @@ urlpatterns = [
     path('about-us/', about_view, name='about'),
     path('index/', index_view, name='index'),
     path('marketplace/', marketplace_view, name='marketplace'),
-    path('shoppingcart/', cart_view, name='cart'),
     path('profile/', profile_view, name='profile'),
     path('profile/edit/', profile_edit_view, name='profile/edit'),
     path('profile/messages/', include('django_messages.urls'), name="messages"),
     path('insert/', insert_view, name='insert'),
     path('profile/inserations/', profile_inserations, name='profile/inserations'),
+    path('inseration/<inseration_id>', view_inseration, name='view_inseration'),
 
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

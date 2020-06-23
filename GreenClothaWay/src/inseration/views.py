@@ -1,7 +1,8 @@
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect, render, get_object_or_404
 from django.urls import reverse
 
 from .forms import InserationForm
+from .models import Inseration
 
 
 def insert_view(request):
@@ -19,3 +20,9 @@ def insert_view(request):
         insert_form = InserationForm()
     context['insert_form'] = insert_form
     return render(request, 'inseration/insert.html', context)
+
+def view_inseration(request, inseration_id):
+    context = {}
+    inseration = get_object_or_404(Inseration, pk=inseration_id)
+    context['inseration'] = inseration
+    return render(request, 'inseration/view_inseration.html', context)

@@ -4,7 +4,7 @@ from django.db import models
 
 class AccountManager(BaseUserManager):
 
-    def create_user(self, email, username, password, title, first_name, last_name, street, housenumber, plz, city,
+    def create_user(self, email, username, password, first_name, last_name, street, housenumber, plz, city,
                     country):
         if not email:
             raise ValueError("Users must have an email address")
@@ -12,8 +12,6 @@ class AccountManager(BaseUserManager):
             raise ValueError("Users must have a username")
         if not password:
             raise ValueError("Users must have a password")
-        if not title:
-            raise ValueError("Users must have an title")
         if not first_name:
             raise ValueError("Users must have an first name")
         if not last_name:
@@ -32,7 +30,6 @@ class AccountManager(BaseUserManager):
         user = self.model(
             email=self.normalize_email(email),
             username=username,
-            title=title,
             first_name=first_name,
             last_name=last_name,
             street=street,
@@ -45,11 +42,10 @@ class AccountManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, email, username, password, title, first_name, last_name, street, housenumber, plz, city, country):
+    def create_superuser(self, email, username, password, first_name, last_name, street, housenumber, plz, city, country):
         user = self.create_user(
             email=self.normalize_email(email),
             username=username,
-            title=title,
             first_name=first_name,
             last_name=last_name,
             street=street,
@@ -85,7 +81,6 @@ class Account(AbstractBaseUser):
     password2 = models.CharField(max_length=50, blank=False)
     mail_confirmed = models.BooleanField(default=False)
 
-    title = models.CharField(max_length=20, choices=MALE_OR_FEMALE)
     first_name = models.CharField(max_length=30, blank=False)
     last_name = models.CharField(max_length=30, blank=False)
     street = models.CharField(max_length=20)
@@ -102,8 +97,7 @@ class Account(AbstractBaseUser):
     objects = AccountManager()
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = (
-        'username', 'password',
-        'title', 'first_name', 'last_name',
+        'username', 'password', 'first_name', 'last_name',
         'street', 'plz',
         'city', 'country',
         'housenumber',)

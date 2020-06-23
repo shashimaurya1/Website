@@ -3,19 +3,13 @@
 {% load bootstrap4 %}
 {% block accountcontent %}
 <div class="row">
-    <div class="col-lg-5"><img class="rounded img-fluid" src="tech/image4.jpg" style="padding: 40px;"/></div>
+    <div class="col-lg-5"><img class="rounded img-fluid" src={% static 'assets/img/person-24px.svg' %} style="padding: 40px;"/></div>
     <div class="col-lg-7">
         <h3 style="margin: 10px 10px;">{{request.user.first_name}} {{request.user.last_name}}</h3>
         <div class="info"></div>
         <div class="row">
             <div class="col">
-                <p class="text-center">Inserations</p>
-            </div>
-            <div class="col">
-                <p class="text-center">CO² reduction</p>
-            </div>
-            <div class="col">
-                <p class="text-center">Gave Away´s</p>
+                <p class="text-center">Inserations {{inseration_count}}</p>
             </div>
             <div class="col">
                 <p class="text-center">Rating</p>
@@ -35,13 +29,9 @@
                 <p class="text-center">{{request.user.rating}}</p>
             </div>
         </div>
-        <p>Through your activity on GreenClothaWay you sdadspoküda d dsak da ölksd salkj dkjsa dsa dsadlkj lkjdsaj
-            dslkjdsalkj dsalkj dsalkj dsa lkdsalkj dsalkj dsalkj dsalkj lkjdsalkj dsalkjlkj dsalkjlkj dsalkjlkj
-            dsalkjlkj lkjdsalkj lkjdsalkj
-            dsa</p>
     </div>
 </div>
-<div class="block-content" style="padding: 7px;padding-top: 7px;">
+<div class="block-content" style="padding: 7px;padding-top: 7px;border: 1px black solid">
     <h3 style="margin: 10px 10px;">Profile Information</h3>
     <div class="row">
         <div class="col">

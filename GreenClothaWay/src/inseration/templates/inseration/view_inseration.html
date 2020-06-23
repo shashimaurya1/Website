@@ -1,0 +1,20 @@
+{% extends 'marketplace/layout.html' %}
+{% load static %}
+{% load bootstrap4 %}
+{% block content %}
+<main class="page">
+<div class="container" style="margin-top:10px">
+    <div class="row">
+        <div class="col-auto">
+           <img style="width:auto; height:400px" src="{{ inseration.images.url }}">
+        </div>
+        <div class="col-auto">
+           <h1>{{ inseration.title }}</h1>
+            <p style="opacity: 70%; text-align: right">{{ inseration.inserter.username }}</p>
+            <p>{{ inseration.description}}</p>
+            <a class="btn btn-primary btn-block btn-lg" href="{% url 'messages_compose_to' inseration.id %}">PN {{ inseration.inserter.username}}</a>
+        </div>
+    </div>
+</div>
+</main>
+{% endblock %}

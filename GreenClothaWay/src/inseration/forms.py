@@ -24,3 +24,9 @@ class InserationUpdateForm(forms.ModelForm):
             except Inseration.DoesNotExist:
                 return email
             raise forms.ValidationError('Email "%s" is already in use.' % email)
+
+
+class InserationFilterForm(forms.ModelForm):
+    class Meta:
+        model = Inseration
+        fields = ('category', 'subcategory', 'size')

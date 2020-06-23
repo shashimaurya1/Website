@@ -4,6 +4,7 @@ from django.shortcuts import redirect, render
 from django.urls import reverse
 
 from .forms import SignUpForm, LoginForm, AccountUpdateForm
+from inseration.models import Inseration
 
 
 def register_view(request):
@@ -62,6 +63,8 @@ def profile_view(request):
     if not request.user.is_authenticated:
         return redirect("login")
     context = {}
+    inseration_count = Inseration.objects.filter(inserter=request.user).count()
+    context['inseration_count'] = inseration_count
     if request.method == "POST":
         form = AccountUpdateForm(request.POST, instance=request.user)
         if form.is_valid():
@@ -72,7 +75,6 @@ def profile_view(request):
             initial={
                 "email": request.user.email,
                 "username": request.user.username,
-                "title": request.user.title,
                 "first_name": request.user.first_name,
                 "last_name": request.user.last_name,
                 "street": request.user.street,
@@ -122,7 +124,10 @@ def profile_inserations(request):
     if not request.user.is_authenticated:
         return redirect("login")
     else:
-        return render(request, 'account/inserations.html')
+        context = {}
+        inseration_list = Inseration.objects.filter(inserter=request.user)
+        context['inseration_list'] = inseration_list
+        return render(request, 'account/inserations.html', context)
 
 @login_required
 def profile_messages(request):

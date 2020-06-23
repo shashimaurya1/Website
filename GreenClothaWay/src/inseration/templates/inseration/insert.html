@@ -17,7 +17,16 @@
                         {% bootstrap_field insert_form.title show_label=False %}
                         <h3>Write a short Description</h3>
                         {% bootstrap_field insert_form.description show_label=False %}
-
+                        <div class="row">
+                            <div class="col-6 col-sm-6 col-md-6">
+                                <h4>Select a category</h4>
+                                {% bootstrap_field insert_form.category show_label=False %}
+                            </div>
+                            <div class="col-6 col-sm-6 col-md-6">
+                                <h4>Select a subcategory</h4>
+                                {% bootstrap_field insert_form.subcategory show_label=False %}
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col-6 col-sm-6 col-md-6">
                                 <h4>Select a size</h4>
@@ -26,16 +35,6 @@
                             <div class="col-6 col-sm-6 col-md-6">
                                 <h4>Select images</h4>
                                 {% bootstrap_field insert_form.images show_label=False %}
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-6 col-sm-6 col-md-6">
-                                <h4>Select a category</h4>
-                                {% bootstrap_field insert_form.category show_label=False %}
-                            </div>
-                            <div class="col-6 col-sm-6 col-md-6">
-                                <h4>Select a category</h4>
-                                {% bootstrap_field insert_form.subcategory show_label=False %}
                             </div>
                         </div>
                         <button class="btn btn-primary btn-block" type="submit"
