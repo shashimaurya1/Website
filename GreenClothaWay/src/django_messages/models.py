@@ -56,7 +56,7 @@ class Message(models.Model):
     subject = models.CharField(_("Subject"), max_length=140)
     body = models.TextField(_("Body"))
     sender = models.ForeignKey(AUTH_USER_MODEL, related_name='sent_messages', verbose_name=_("Sender"),
-                               on_delete=models.PROTECT)
+                               on_delete=models.CASCADE)
     recipient = models.ForeignKey(AUTH_USER_MODEL, related_name='received_messages', null=True, blank=True,
                                   verbose_name=_("Recipient"), on_delete=models.SET_NULL)
     parent_msg = models.ForeignKey('self', related_name='next_messages', null=True, blank=True,
