@@ -104,7 +104,6 @@ def profile_edit_view(request):
             initial={
                 "email": request.user.email,
                 "username": request.user.username,
-                "title": request.user.title,
                 "first_name": request.user.first_name,
                 "last_name": request.user.last_name,
                 "street": request.user.street,
