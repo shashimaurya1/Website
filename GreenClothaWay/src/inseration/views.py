@@ -15,14 +15,21 @@ def insert_view(request):
             form = insert_form.save(commit=False)
             form.inserter = request.user
             form.save()
-            return redirect('index')
+            return redirect('marketplace')
     else:
         insert_form = InserationForm()
     context['insert_form'] = insert_form
     return render(request, 'inseration/insert.html', context)
+
 
 def view_inseration(request, inseration_id):
     context = {}
     inseration = get_object_or_404(Inseration, pk=inseration_id)
     context['inseration'] = inseration
     return render(request, 'inseration/view_inseration.html', context)
+
+
+def delete_inseration(request, inseration_id):
+    inseration = get_object_or_404(Inseration, pk=inseration_id)
+    inseration.delete()
+    return redirect('marketplace')
