@@ -94,6 +94,8 @@ def profile_edit_view(request):
     if not request.user.is_authenticated:
         return redirect("login")
     context = {}
+    inseration_count = Inseration.objects.filter(inserter=request.user).count()
+    context['inseration_count'] = inseration_count
     if request.method == "POST":
         form = AccountUpdateForm(request.POST, instance=request.user)
         if form.is_valid():
