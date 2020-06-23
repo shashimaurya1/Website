@@ -31,6 +31,7 @@ from django.conf.urls.static import static
 from inseration.views import (
     insert_view,
     view_inseration,
+    delete_inseration
 )
 from marketplace.views import (
     about_view,
@@ -54,5 +55,6 @@ urlpatterns = [
     path('insert/', insert_view, name='insert'),
     path('profile/inserations/', profile_inserations, name='profile/inserations'),
     path('inseration/<inseration_id>', view_inseration, name='view_inseration'),
+    path('inseration/delete/<inseration_id>', delete_inseration, name='delete_inseration')
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
