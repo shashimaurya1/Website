@@ -10,7 +10,7 @@ import os
 class CreateAccountTest(TestCase):
 
     def setUp(self):
-        self.user = Account.objects.create_user('user@mail.com', 'user', 'pwd', 'title', 'first', 'last', 'street',
+        self.user = Account.objects.create_user('user@mail.com', 'user', 'pwd', 'first', 'last', 'street',
                                                 '1', '12345', 'city', 'de')
         self.image = SimpleUploadedFile(name='bla.jpg', content=open('marketplace/static/assets/img/nophoto.jpg', 'rb').read(), content_type='image/jpeg')
         #self.inseration = Inseration.objects.create_inseration('title', 'description', self.image, 'Top', 'T-Shirt', '3XL', inserter=self.user)
