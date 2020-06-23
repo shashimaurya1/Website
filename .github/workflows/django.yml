@@ -25,4 +25,6 @@ jobs:
       run: |
         cd GreenClothaWay/src/
         mv website/settings_unittest.py website/settings.py
+        python manage.py makemigrations
+        python manage.py migrate
         python manage.py test
