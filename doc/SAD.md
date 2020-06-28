@@ -10,6 +10,7 @@
 - [2. Architectural Representation](#2-architectural-representation)
     - [2.1 Technologies used](#21-technologies-used)
 - [3. Architectural Goals and Constraints](#3-architectural-goals-and-constraints)
+    - [3.1 Design Pattern](#31-design-pattern)
 - [4. Use-Case View](#4-use-case-view)
     - [4.1 Use-Case Realizations](#41-use-case-realizations)
 - [5. Logical View](#5-logical-view)
@@ -68,7 +69,10 @@ Languages:
 - Testing: Python (behave)
 
 ## 3. Architectural Goals and Constraints
-n/a
+
+### 3.1 Design Pattern
+We used Python decorators as design patterns. 
+![Design Pattern](/doc/design_pattern.png)
 
 ## 4. Use-Case View
 ![Use Case Diagram](/doc/GCW_UML.png)
