@@ -36,7 +36,6 @@
             -   [3.2.2 Specific Product Information](#322-specific-product-information)
             -   [3.2.3 Insert clothes](#323-insert-clothes)
             -   [3.2.4 Buy clothes](#324-buy-clothes)
-            -   [3.2.5 Shopping cart](#325-shoping-cart)
 
         -   [3.3 Usability](#33-usability)
 
@@ -190,7 +189,6 @@ The product description form includes information about size, form, colour, cond
 #### 3.2.4 Buy clothes
 
 
-#### 3.2.5 Shopping cart
 
 
 ### 3.3 Usability
