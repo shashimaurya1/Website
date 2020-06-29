@@ -240,7 +240,7 @@ We classify bugs like the following:
 
 #### 3.7.2 Supported Platforms
 
-Since FlashCardCommunity will be a web application the user only needs a modern web browser and a stable internet connection. The current versions of Mozilla Firefox, Google Chrome, Opera, Edge and even IE down to version 9 will be supported!
+Since GreenClothaWay will be a web application the user only needs a modern web browser and a stable internet connection. The current versions of Mozilla Firefox, Google Chrome, Opera, Edge and even IE down to version 9 will be supported!
 
 ### 3.8 Online User Documentation and Help System Requirements
 
